@@ -68,7 +68,11 @@ export default function Contact() {
                 v: "/in/chrisrisio",
                 href: "https://www.linkedin.com/in/chrisrisio",
               },
-              { k: "Calendar", v: "Book 20 min", href: "#" },
+              {
+                k: "Calendar",
+                v: "Book 30 min",
+                href: "https://calendly.com/risiochristopher/30min",
+              },
             ].map((c) => (
               <a
                 key={c.k}
