@@ -3,6 +3,29 @@
 import { Reveal } from "./Reveal";
 import MagneticButton from "./MagneticButton";
 
+const channels = [
+  {
+    k: "Email",
+    v: "risiochristopher@gmail.com",
+    href: "mailto:risiochristopher@gmail.com?subject=Project%20inquiry",
+  },
+  {
+    k: "Calendar",
+    v: "Book 30 min",
+    href: "https://calendly.com/risiochristopher/30min",
+  },
+  {
+    k: "LinkedIn",
+    v: "/in/chrisrisio",
+    href: "https://www.linkedin.com/in/chrisrisio",
+  },
+  {
+    k: "GitHub",
+    v: "@Andopher",
+    href: "https://github.com/Andopher",
+  },
+];
+
 export default function Contact() {
   return (
     <section
@@ -22,79 +45,42 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-16 grid grid-cols-12 gap-x-6 gap-y-10 md:mt-24 md:gap-x-10">
-            <div className="col-span-12 md:col-span-6">
-              <p className="max-w-md text-[16px] leading-relaxed text-foreground/80">
-                The fastest path is email. Tell me what you&apos;re building,
-                what hurts about it, and when you need it. I&apos;ll write
-                back within a day with an honest answer.
-              </p>
-            </div>
-
-            <div className="col-span-12 flex items-end md:col-span-6">
-              <MagneticButton
-                href="mailto:risiochristopher@gmail.com?subject=Project%20inquiry"
-                className="group inline-flex items-center gap-5 rounded-full border border-foreground/15 bg-foreground px-8 py-5 text-background transition-colors hover:bg-accent md:px-10 md:py-6"
-              >
-                <span className="text-[15px] tracking-tight md:text-[17px]">
-                  risiochristopher@gmail.com
-                </span>
-                <span
-                  aria-hidden
-                  className="grid h-9 w-9 place-items-center rounded-full bg-background/10 transition-transform group-hover:rotate-45"
-                >
-                  →
-                </span>
-              </MagneticButton>
-            </div>
-          </div>
+          <p className="mt-16 max-w-md text-[16px] leading-relaxed text-foreground/80 md:mt-24">
+            Pick whichever&apos;s easiest. Tell me what you&apos;re building,
+            what hurts about it, and when you need it. I&apos;ll write back
+            within a day with an honest answer.
+          </p>
         </Reveal>
 
         <Reveal delay={0.25}>
-          <div className="mt-24 grid grid-cols-2 gap-6 border-t border-line pt-10 md:grid-cols-4">
-            {[
-              {
-                k: "Email",
-                v: "risiochristopher@gmail.com",
-                href: "mailto:risiochristopher@gmail.com",
-              },
-              {
-                k: "GitHub",
-                v: "@Andopher",
-                href: "https://github.com/Andopher",
-              },
-              {
-                k: "LinkedIn",
-                v: "/in/chrisrisio",
-                href: "https://www.linkedin.com/in/chrisrisio",
-              },
-              {
-                k: "Calendar",
-                v: "Book 30 min",
-                href: "https://calendly.com/risiochristopher/30min",
-              },
-            ].map((c) => (
-              <a
-                key={c.k}
-                href={c.href}
-                className="group block"
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel={c.href.startsWith("http") ? "noreferrer" : undefined}
-              >
-                <div className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted">
-                  {c.k}
-                </div>
-                <div className="mt-2 inline-flex items-center gap-2 text-[14px] tracking-tight text-foreground">
-                  <span className="link-underline">{c.v}</span>
+          <div className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
+            {channels.map((c) => {
+              const isExternal = c.href.startsWith("http");
+              return (
+                <MagneticButton
+                  key={c.k}
+                  href={c.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noreferrer noopener" : undefined}
+                  className="group flex items-center justify-between gap-5 rounded-2xl border border-foreground/15 bg-surface/60 px-6 py-6 text-foreground transition-colors hover:bg-foreground hover:text-background"
+                >
+                  <div className="min-w-0">
+                    <div className="font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted transition-colors group-hover:text-background/60">
+                      {c.k}
+                    </div>
+                    <div className="mt-2 truncate text-[15px] tracking-tight">
+                      {c.v}
+                    </div>
+                  </div>
                   <span
                     aria-hidden
-                    className="opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
+                    className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-foreground/5 text-foreground/70 transition-all group-hover:rotate-45 group-hover:bg-background/10 group-hover:text-background/80"
                   >
-                    ↗
+                    →
                   </span>
-                </div>
-              </a>
-            ))}
+                </MagneticButton>
+              );
+            })}
           </div>
         </Reveal>
       </div>

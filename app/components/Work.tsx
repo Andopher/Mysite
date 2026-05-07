@@ -20,6 +20,19 @@ type Project = {
 const projects: Project[] = [
   {
     index: "01",
+    name: "FSEN",
+    role: "Co-Founder",
+    blurb:
+      "Co-founder building the autonomous dispatch layer for contractors. FSEN sits between the emergency and the on-call tech, routing the right person in seconds so customers stop losing minutes when minutes matter.",
+    stack: ["Autonomous Dispatch", "Contractors", "Emergency Response", "Real-Time"],
+    year: "2025 / now",
+    href: "https://fsen.tech",
+    hue: "linear-gradient(135deg,#e8eaed 0%,#7d8590 55%,#2d3338 100%)",
+    logo: "/fsen-logo.png",
+    logoMode: "contain",
+  },
+  {
+    index: "02",
     name: "Cro Metrics",
     role: "Software Engineer · Contract",
     blurb:
@@ -32,7 +45,7 @@ const projects: Project[] = [
     logoMode: "cover",
   },
   {
-    index: "02",
+    index: "03",
     name: "Nonlinear",
     role: "Software Engineer Intern",
     blurb:
@@ -45,7 +58,7 @@ const projects: Project[] = [
     logoMode: "contain",
   },
   {
-    index: "03",
+    index: "04",
     name: "Cody Reading",
     role: "Lead Developer",
     blurb:
@@ -53,7 +66,7 @@ const projects: Project[] = [
     stack: ["React", "TypeScript", "Node", "Custom NLP", "Postgres"],
     year: "2024 / 25",
     href: "https://codyreading.com",
-    hue: "linear-gradient(135deg,#bae6fd 0%,#3b82f6 55%,#1e1b4b 100%)",
+    hue: "linear-gradient(135deg,#faf7f2 0%,#e7e2d8 55%,#a8a29e 100%)",
     logo: "/cody-logo-horizontal.png",
     logoMode: "contain",
   },
@@ -68,13 +81,6 @@ type Experience = {
 };
 
 const experience: Experience[] = [
-  {
-    company: "FSEN",
-    role: "Co-Founder",
-    period: "2025 / now",
-    note: "Co-founder wearing the engineering hat while we figure out what the company is. Stealth, in motion.",
-    href: "https://fsen.tech",
-  },
   {
     company: "Rush Ticketing",
     role: "Founding Engineer · Contract",
@@ -248,7 +254,7 @@ export default function Work() {
               </h2>
             </div>
             <p className="hidden max-w-xs text-right text-[13px] leading-relaxed text-muted md:block">
-              Leading, building, contracting. Three of the projects I&apos;m
+              Leading, building, contracting. A few of the projects I&apos;m
               most proud of.
             </p>
           </div>

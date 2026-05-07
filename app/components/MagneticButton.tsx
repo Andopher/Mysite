@@ -7,9 +7,17 @@ type Props = {
   href: string;
   children: ReactNode;
   className?: string;
+  target?: string;
+  rel?: string;
 };
 
-export default function MagneticButton({ href, children, className }: Props) {
+export default function MagneticButton({
+  href,
+  children,
+  className,
+  target,
+  rel,
+}: Props) {
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -35,6 +43,8 @@ export default function MagneticButton({ href, children, className }: Props) {
     <motion.a
       ref={ref}
       href={href}
+      target={target}
+      rel={rel}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       style={{ x: sx, y: sy }}

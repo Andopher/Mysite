@@ -77,7 +77,7 @@ export default function About() {
               {[
                 { k: "Available", v: "Founding · Contract" },
                 { k: "Experience", v: "3+ yrs shipping" },
-                { k: "Education", v: "BS, Computer Science" },
+                { k: "Education", v: "BS, Computer Science · Boston College" },
                 { k: "Time zone", v: "ET · Remote-first" },
               ].map((item) => (
                 <div key={item.k}>

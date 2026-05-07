@@ -73,7 +73,7 @@ export default function Hero() {
             <div className="flex items-end justify-between gap-6 md:col-span-5 md:col-start-8">
               <div className="text-[12px] uppercase tracking-[0.18em] text-muted">
                 <div>Based in</div>
-                <div className="mt-1 text-foreground">New York · Remote</div>
+                <div className="mt-1 text-foreground">Boston · Remote</div>
               </div>
               <a
                 href="#work"
