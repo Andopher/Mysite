@@ -47,7 +47,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
-      <body className="grain min-h-screen overflow-x-hidden bg-background text-foreground">
+      <body
+        suppressHydrationWarning
+        className="grain relative min-h-screen overflow-x-hidden bg-background text-foreground"
+      >
         <SmoothScroll>
           <Cursor />
           {children}
