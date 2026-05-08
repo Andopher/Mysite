@@ -162,9 +162,29 @@ function ProjectCard({ p }: { p: Project }) {
         </div>
 
         <div className="col-span-12 md:col-span-5">
-          <h3 className="display text-[clamp(2.4rem,5.5vw,4.5rem)] font-medium tracking-tighter">
-            {p.name}
-          </h3>
+          {p.href ? (
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              data-cursor="hover"
+              className="group/title inline-flex items-baseline gap-3"
+            >
+              <h3 className="display text-[clamp(2.4rem,5.5vw,4.5rem)] font-medium tracking-tighter transition-colors group-hover/title:text-foreground/70">
+                {p.name}
+              </h3>
+              <span
+                aria-hidden
+                className="display text-[clamp(1.4rem,3vw,2.2rem)] text-muted transition-transform group-hover/title:-translate-y-1 group-hover/title:translate-x-1 group-hover/title:text-foreground"
+              >
+                ↗
+              </span>
+            </a>
+          ) : (
+            <h3 className="display text-[clamp(2.4rem,5.5vw,4.5rem)] font-medium tracking-tighter">
+              {p.name}
+            </h3>
+          )}
           <div className="mt-2 text-[13px] text-muted">
             <span className="serif-italic text-foreground/80">{p.role}</span>
           </div>
@@ -202,9 +222,9 @@ function ProjectCard({ p }: { p: Project }) {
                 className="absolute left-1/2 top-1/2 max-h-[55%] max-w-[70%] -translate-x-1/2 -translate-y-1/2 object-contain"
               />
             )}
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white/95">
-              <div className="text-[11px] uppercase tracking-[0.18em]">
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-white/85">
                 {p.stack.slice(0, 3).join(" · ")}
               </div>
               {p.href && (
@@ -212,9 +232,16 @@ function ProjectCard({ p }: { p: Project }) {
                   href={p.href}
                   target="_blank"
                   rel="noreferrer noopener"
-                  className="font-mono text-[11px] tracking-tight text-white/90 transition-opacity hover:opacity-100 opacity-85"
+                  data-cursor="hover"
+                  className="group/visit inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-black shadow-lg ring-1 ring-black/10 transition-transform hover:-translate-y-0.5 hover:bg-white"
                 >
-                  {p.href.replace(/^https?:\/\//, "")} ↗
+                  Visit
+                  <span
+                    aria-hidden
+                    className="transition-transform group-hover/visit:translate-x-0.5 group-hover/visit:-translate-y-0.5"
+                  >
+                    ↗
+                  </span>
                 </a>
               )}
             </div>
@@ -223,6 +250,26 @@ function ProjectCard({ p }: { p: Project }) {
           <p className="mt-6 max-w-prose text-[14.5px] leading-relaxed text-foreground/75">
             {p.blurb}
           </p>
+
+          {p.href && (
+            <a
+              href={p.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              data-cursor="hover"
+              className="group/url mt-5 inline-flex items-center gap-1.5 text-[14px] tracking-tight text-foreground"
+            >
+              <span className="link-underline font-mono text-[13px]">
+                {p.href.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+              </span>
+              <span
+                aria-hidden
+                className="text-[12px] text-muted transition-transform group-hover/url:-translate-y-0.5 group-hover/url:translate-x-0.5"
+              >
+                ↗
+              </span>
+            </a>
+          )}
 
           <div className="mt-5 flex flex-wrap gap-1.5">
             {p.stack.map((s) => (

@@ -35,9 +35,6 @@ export const metadata: Metadata = {
       "Founding engineer and contractor. I ship full-stack products that feel like they were made by a small, opinionated team.",
     type: "website",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
