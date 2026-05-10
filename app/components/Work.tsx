@@ -85,7 +85,7 @@ const experience: Experience[] = [
     company: "Rush Ticketing",
     role: "Founding Engineer · Contract",
     period: "2025 / 26",
-    note: "Led the founding engineering team end-to-end on the Google API stack. Shipped a ticketing platform to thousands of users.",
+    note: "Led the founding engineering team end-to-end on the Google API stack. Shipped a ticketing platform backed by multiple VCs.",
     href: "https://rush-events.com",
   },
   {
